@@ -38,7 +38,5 @@ public final class BudgetDTO {
 		this.person = person;
 	}
 	
-	
-	
 
 }
