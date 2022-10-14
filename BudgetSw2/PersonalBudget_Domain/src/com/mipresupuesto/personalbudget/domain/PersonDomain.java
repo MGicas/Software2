@@ -66,6 +66,10 @@ public class PersonDomain {
 	}
 	
 	public final String getName() {
-		return getFirstname()+" " + getMiddlename().trim() + " " + getLastname();
+		return getFirstname()+" " + getMiddlename().trim();
+	}
+	
+	public final String getCompleteName() {
+		return getName()+" " + getLastname();
 	}
 }
