@@ -10,7 +10,7 @@ public final class YearDTOAssembler implements DTOAssembler<YearDTO, YearDomain>
 	@Override
 	public final YearDomain asembleDomain(final YearDTO dto) {
 		
-		YearDomain domain = YearDomainBuider.get().build();
+		YearDomain domain = YearDomainBuilder.get().build();
 		// TODO Auto-generated method stub
 		return null;
 	}
