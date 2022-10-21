@@ -1,4 +1,4 @@
-package com.mipresupuesto.personalbudget.crosscutting.Itils;
+package com.mipresupuesto.personalbudget.crosscutting.Utils;
 
 import java.util.UUID;
 
