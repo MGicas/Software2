@@ -35,4 +35,8 @@
   		<version>2.7.5</version>
   	</dependency>
   </dependencies>
+  <properties>
+ 	 <sonar.organization>mgicas</sonar.organization>
+ 	 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  </properties>
 </project>
