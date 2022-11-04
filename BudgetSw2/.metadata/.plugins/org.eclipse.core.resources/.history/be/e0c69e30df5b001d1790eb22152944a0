@@ -1,0 +1,45 @@
+package entity;
+
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Year")
+public class YearEntity {
+	
+	@Id
+	@Column(name="id")
+	private UUID id;
+	@Column(name="id")
+	private int year;
+	
+	public YearEntity(){
+		setYear(0);
+	}
+	
+	public YearEntity(final UUID id, final int year) {
+		setId(id);
+		setYear(year);
+	}
+	
+	public static YearEntity create() {
+		return new YearEntity();
+	}
+	public UUID getId() {
+		return id;
+	}
+	public void setId(final UUID id) {
+		this.id = id;
+	}
+	public int getYear() {
+		return year;
+	}
+	public void setYear(final int year) {
+		this.year = year;
+	}
+
+}

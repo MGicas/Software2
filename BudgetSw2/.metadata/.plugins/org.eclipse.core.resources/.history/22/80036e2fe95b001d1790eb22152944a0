@@ -1,0 +1,7 @@
+spring:
+ datasource:
+  url: jdbc:sqlserver://rg-wf.database.windows.net:1433;database=db--budget;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+  database: db--budget
+  username: userDmlBudget
+  password: us3rDmlBudg3t
+  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver

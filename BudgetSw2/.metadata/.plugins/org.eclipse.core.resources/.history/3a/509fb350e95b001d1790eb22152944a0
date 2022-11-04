@@ -1,0 +1,21 @@
+spring:
+ datasource:
+  url: jdbc:sqlserver://rg-wf.database.windows.net:1433;database=db--budget;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+  username: userDmlBudget
+  password: us3rDmlBudg3t
+  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+ security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: IpdYiXcopuxrOm0DqQ381zpdyJ3M3aJa
+            client-secret: YOUR_CLIENT_SECRET
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            # trailing slash is important!
+            issuer-uri: https://zebaxthi.us.auth0.com/
