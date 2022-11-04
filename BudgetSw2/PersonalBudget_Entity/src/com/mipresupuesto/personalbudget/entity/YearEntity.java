@@ -1,4 +1,4 @@
-package entity;
+package com.mipresupuesto.personalbudget.entity;
 
 import java.util.UUID;
 
@@ -14,7 +14,7 @@ public final class YearEntity {
 	@Id
 	@Column(name="id")
 	private UUID id;
-	@Column(name="id")
+	@Column(name="year")
 	private int year;
 	
 	public YearEntity(){
@@ -26,7 +26,7 @@ public final class YearEntity {
 		setYear(year);
 	}
 	
-	public static final YearEntity create() {
+	public static YearEntity create() {
 		return new YearEntity();
 	}
 	public final UUID getId() {

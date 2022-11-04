@@ -8,9 +8,8 @@ import org.springframework.stereotype.Service;
 import com.mipresupuesto.personalbudget.application.entityassembler.EntityAssembler;
 import com.mipresupuesto.personalbudget.application.usecase.interfaces.CreateBudgetUseCase;
 import com.mipresupuesto.personalbudget.domain.BudgetDomain;
+import com.mipresupuesto.personalbudget.entity.BudgetEntity;
 import com.mipresupuesto.personalbudget.infrastructure.data.interfaces.BudgetRepository;
-
-import entity.BudgetEntity;
 
 @Service
 @Transactional

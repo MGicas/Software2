@@ -4,8 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.mipresupuesto.personalbudget.application.entityassembler.EntityAssembler;
 import com.mipresupuesto.personalbudget.domain.PersonDomain;
-
-import entity.PersonEntity;
+import com.mipresupuesto.personalbudget.entity.PersonEntity;
 
 @Component
 public class PersonEntityAssembler implements EntityAssembler<PersonEntity, PersonDomain>{

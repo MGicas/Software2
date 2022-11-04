@@ -1,4 +1,4 @@
-package entity;
+package com.mipresupuesto.personalbudget.entity;
 
 import java.util.UUID;
 
@@ -40,7 +40,7 @@ public final class PersonEntity {
 		setLastname(lastname);
 	}
 	
-	public static final PersonEntity create() {
+	public static PersonEntity create() {
 		return new PersonEntity();
 	}
 

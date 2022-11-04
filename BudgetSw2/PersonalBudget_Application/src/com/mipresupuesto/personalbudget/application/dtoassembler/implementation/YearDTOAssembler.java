@@ -1,10 +1,12 @@
 package com.mipresupuesto.personalbudget.application.dtoassembler.implementation;
 
+import org.springframework.stereotype.Component;
+
 import com.mipresupuesto.personalbudget.application.dtoassembler.DTOAssembler;
 import com.mipresupuesto.personalbudget.domain.YearDomain;
 import com.mipresupuesto.personalbudget.domain.builder.YearDomainBuilder;
 import com.mipresupuesto.personalbudget.dto.YearDTO;
-
+@Component
 public final class YearDTOAssembler implements DTOAssembler<YearDTO, YearDomain> {
 
 	@Override

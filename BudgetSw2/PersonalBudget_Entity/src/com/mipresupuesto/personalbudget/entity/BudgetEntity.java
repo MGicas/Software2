@@ -1,4 +1,4 @@
-package entity;
+package com.mipresupuesto.personalbudget.entity;
 
 import java.util.UUID;
 
