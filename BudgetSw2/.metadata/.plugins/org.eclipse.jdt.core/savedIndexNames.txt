@@ -64,7 +64,6 @@ INDEX VERSION 1.131+C:\Users\zebax\Documents\ingenieria de software2\Software2\B
 1026965383.index
 3382596355.index
 3059043090.index
-1756068628.index
 1622075777.index
 3975982782.index
 1016039749.index
@@ -81,7 +80,6 @@ INDEX VERSION 1.131+C:\Users\zebax\Documents\ingenieria de software2\Software2\B
 1466693336.index
 3890711578.index
 3815758286.index
-1941718911.index
 2098384545.index
 2301173611.index
 1547447418.index
