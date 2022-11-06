@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import com.mipresupuesto.personalbudget.crosscutting.Utils.UtilUUID;
 
 @Entity
 @Table(name="Budget")
@@ -24,11 +25,13 @@ public final class BudgetEntity {
 	private PersonEntity person;
 	
 	public BudgetEntity() {
+		setId(UtilUUID.DEFAULT_UUID);
 		setYear(new YearEntity());
 		setPerson(new PersonEntity());
 	}
 
-	public BudgetEntity(final YearEntity year, final PersonEntity person) {
+	public BudgetEntity(final UUID id, final YearEntity year, final PersonEntity person) {
+		setId(id);
 		setYear(year);
 		setPerson(person);
 	}

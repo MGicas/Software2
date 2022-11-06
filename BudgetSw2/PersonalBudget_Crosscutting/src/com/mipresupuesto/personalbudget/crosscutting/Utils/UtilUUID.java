@@ -26,5 +26,13 @@ public final class UtilUUID {
 		}while (isEqual(uuid, DEFAULT_UUID));
 		return uuid;
 	}
+
+	public static UUID getUUIDFromString(String id) {
+		return UUID.fromString(id);
+	}
+	
+	public static String getStringFromUUID(UUID id) {
+		return id.toString();
+	}
 	
 }

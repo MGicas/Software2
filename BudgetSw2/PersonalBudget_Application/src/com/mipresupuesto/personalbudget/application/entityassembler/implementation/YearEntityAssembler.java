@@ -3,7 +3,9 @@ package com.mipresupuesto.personalbudget.application.entityassembler.implementat
 import org.springframework.stereotype.Component;
 
 import com.mipresupuesto.personalbudget.application.entityassembler.EntityAssembler;
+import com.mipresupuesto.personalbudget.crosscutting.Utils.ObjectHelper;
 import com.mipresupuesto.personalbudget.domain.YearDomain;
+import com.mipresupuesto.personalbudget.domain.builder.YearDomainBuilder;
 import com.mipresupuesto.personalbudget.entity.YearEntity;
 
 @Component
@@ -11,15 +13,24 @@ public class YearEntityAssembler implements EntityAssembler<YearEntity, YearDoma
 	
 
 	@Override
-	public YearDomain asembleDomain(YearEntity entity) {
-		// TODO Auto-generated method stub
-		return null;
+	public final YearDomain asembleDomain(YearEntity entity) {
+		YearDomain domain = YearDomainBuilder.get().build();
+		if (!ObjectHelper.isNull(entity)) {
+			domain = YearDomainBuilder.get()
+					.setId(entity.getId())
+					.setYear(entity.getYear())
+					.build();
+		}
+		return domain;
 	}
 
 	@Override
 	public YearEntity asembleEntity(YearDomain domain) {
-		// TODO Auto-generated method stub
-		return null;
+		YearEntity entity = new YearEntity();
+		if (!ObjectHelper.isNull(domain)) {
+			entity = new YearEntity(domain.getId(), domain.getYear());
+		}
+		return entity;
 	}
 
 }
