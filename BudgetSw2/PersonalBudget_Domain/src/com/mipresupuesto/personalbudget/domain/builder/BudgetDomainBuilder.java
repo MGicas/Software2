@@ -5,6 +5,7 @@ import java.util.UUID;
 import com.mipresupuesto.personalbudget.domain.BudgetDomain;
 import com.mipresupuesto.personalbudget.domain.PersonDomain;
 import com.mipresupuesto.personalbudget.domain.YearDomain;
+import com.mipresupuesto.personalbudget.crosscutting.Utils.UtilUUID;
 
 public class BudgetDomainBuilder {
 	
@@ -12,13 +13,18 @@ public class BudgetDomainBuilder {
 	private YearDomain year;
 	private PersonDomain person;
 	
-	private BudgetDomainBuilder(final YearDomain year, final PersonDomain person) {
+	private BudgetDomainBuilder() {
+		setId(UtilUUID.DEFAULT_UUID);
 		setYear(year);
 		setPerson(person);
 	}
+	
+	public static final BudgetDomainBuilder get() {
+		return new BudgetDomainBuilder();
+	}
 
-	public static final BudgetDomainBuilder create(final YearDomain year, final PersonDomain person) {
-		return new BudgetDomainBuilder(year, person);
+	public final BudgetDomain build() {
+		return BudgetDomain.create(id, year, person);
 	}
 	
 	public final BudgetDomainBuilder setId(final UUID id) {
@@ -31,15 +37,16 @@ public class BudgetDomainBuilder {
 		return this;
 	}
 
-	private final void setPerson(final PersonDomain person) {
+	public final BudgetDomainBuilder setPerson(final PersonDomain person) {
 		this.person = person;
+		return this;
 	}
 
-	public final YearDomain getYear() {
+	private final YearDomain getYear() {
 		return year;
 	}
 
-	public final PersonDomain getPerson() {
+	private final PersonDomain getPerson() {
 		return person;
 	}
 

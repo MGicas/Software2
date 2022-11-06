@@ -7,7 +7,6 @@ public final class PersonDTO {
 	private String middlename;
 	private String lastname;
 	private String name;
-	private String lastName;
 	private String completename;
 	
 	public PersonDTO() {
@@ -17,18 +16,16 @@ public final class PersonDTO {
 		setMiddlename("");
 		setLastname("");
 		setName("");
-		setLastName("");
 		setCompletename("");
 	}
 
-	public PersonDTO(final String id, final String idCard, final String firstname, final String middlename, final String lastname, final String name, final String lastName, final String completename) {
+	public PersonDTO(final String id, final String idCard, final String firstname, final String middlename, final String lastname, final String name, final String completename) {
 		setId(id);
 		setIdCard(idCard);
 		setFirstname(firstname);
 		setMiddlename(middlename);
 		setLastname(lastname);
 		setName(name);
-		setLastName(lastName);
 		setCompletename(completename);
 	}
 	
@@ -80,15 +77,15 @@ public final class PersonDTO {
 		this.middlename = middlename;
 	}
 
-	public final String getLastname() {
-		if(lastname == null) {
-			setId("");
-		}
-		return lastname.trim();
-	}
-
 	public final void setLastname(final String lastname) {
 		this.lastname = lastname;
+	}
+	
+	public final String getLastname() {
+		if(lastname == null) {
+			setLastname("");
+		}
+		return lastname.trim();
 	}
 
 	public final String getName() {
@@ -100,17 +97,6 @@ public final class PersonDTO {
 
 	public final void setName(final String name) {
 		this.name = name;
-	}
-
-	public final String getLastName() {
-		if(lastName == null) {
-			setLastName("");
-		}
-		return lastName.trim();
-	}
-
-	public final void setLastName(final String lastName) {
-		this.lastName = lastName;
 	}
 
 	public final String getCompletename() {
