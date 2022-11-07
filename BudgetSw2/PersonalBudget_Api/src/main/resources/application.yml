@@ -1,7 +1,11 @@
+auth0:
+  audience: https://rs256.test.api
 azure:
  application-insights:
   instrumentation-key: 0fc69e37-c8bb-4506-b909-80b0550ab8f0
 spring:
+ sendgrid:
+  api-key: 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
  datasource:
   url: jdbc:sqlserver://rg-wf.database.windows.net:1433;database=db--budget;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
   username: userDmlBudget
@@ -9,6 +13,9 @@ spring:
   driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
  security:
     oauth2:
+      resourceserver:
+       jwt: 
+        issuer-uri: https://zebaxthi.us.auth0.com/
       client:
         registration:
           auth0:
@@ -22,4 +29,5 @@ spring:
           auth0:
             # trailing slash is important!
             issuer-uri: https://zebaxthi.us.auth0.com/
+
  

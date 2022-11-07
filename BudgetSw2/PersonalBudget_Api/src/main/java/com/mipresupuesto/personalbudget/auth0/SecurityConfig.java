@@ -24,10 +24,10 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
                 .and().oauth2Login()
                 .and().logout()
-                // handle logout requests at /logout path
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                // customize logout handler to log out of Auth0
                 .addLogoutHandler(logoutHandler);
+                // handle logout requests at /logout path
+                // customize logout handler to log out of Auth0
         return http.build();
     }
 

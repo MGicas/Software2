@@ -1,5 +1,7 @@
 package com.mipresupuesto.personalbudget.auth0;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class HomeController {
+	
+	Logger log = LoggerFactory.getLogger(HomeController.class);
 
 	@GetMapping("/")
 	public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
