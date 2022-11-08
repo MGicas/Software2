@@ -1,5 +1,6 @@
 spring:
-
+ sendgrid:
+  api-key: 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
  cloud:
     vault:
       kv:
