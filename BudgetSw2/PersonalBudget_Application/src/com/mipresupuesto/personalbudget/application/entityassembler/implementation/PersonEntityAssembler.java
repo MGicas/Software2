@@ -18,7 +18,6 @@ public class PersonEntityAssembler implements EntityAssembler<PersonEntity, Pers
 
 	@Override
 	public PersonEntity asembleEntity(PersonDomain domain) {
-		// TODO Auto-generated method stub
-		return null;
+		return new PersonEntity(domain.getId(),domain.getIdCard(),domain.getFirstname(),domain.getMiddlename(), domain.getLastname());
 	}
 }

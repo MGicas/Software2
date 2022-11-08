@@ -18,8 +18,7 @@ public class YearEntityAssembler implements EntityAssembler<YearEntity, YearDoma
 
 	@Override
 	public YearEntity asembleEntity(YearDomain domain) {
-		// TODO Auto-generated method stub
-		return null;
+		return new YearEntity(domain.getId(), domain.getYear());
 	}
 
 }
