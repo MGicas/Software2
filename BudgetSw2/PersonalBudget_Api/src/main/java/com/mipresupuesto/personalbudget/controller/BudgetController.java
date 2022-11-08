@@ -6,16 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.oidc.OidcIdToken;
+import org.springframework.security.oauth2.core.oidc.OidcIdToken.Builder;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.oauth2.core.oidc.user.OidcUserAuthority;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.MediaType;
+import org.thymeleaf.extras.springsecurity5.auth.Authorization;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.mipresupuesto.personalbudget.application.command.interfaces.CreateBudgetPort;
+import com.mipresupuesto.personalbudget.auth0.JwtValidator;
 import com.mipresupuesto.personalbudget.controller.response.Response;
 import com.mipresupuesto.personalbudget.controller.response.dto.Message;
 import com.mipresupuesto.personalbudget.crosscutting.Utils.SendGridHelper;
@@ -31,15 +37,17 @@ public class BudgetController {
 	@Autowired
 	MailService mailService;
 	
+	final JwtValidator validator = new JwtValidator();
+	
 	@Autowired
 	private CreateBudgetPort createBudgetPort;
 
 	@PostMapping
-	public ResponseEntity<Response<BudgetDTO>> create(@RequestBody BudgetDTO budget, @AuthenticationPrincipal OidcUser oidcUser) {
-		
+	public ResponseEntity<Response<BudgetDTO>> create(@RequestBody BudgetDTO budget,@AuthenticationPrincipal OidcUser oidcUser, @RequestHeader("Authorization") String token) {
 		createBudgetPort.execute(budget);
 		final Response<BudgetDTO> response = new Response<>();
 		HttpStatus statusCode = HttpStatus.OK;
+		validator.validate(token);
 		
 		try {
 			response.addMessage(Message.createSuccessMessage("El budget se creo de forma satisfactoria"));
@@ -59,11 +67,14 @@ public class BudgetController {
 	}
 
 	@GetMapping
-	public ResponseEntity<Response<BudgetDTO>> saludar(@AuthenticationPrincipal OidcUser oidcUser) {
+	public ResponseEntity<Response<BudgetDTO>> saludar(@AuthenticationPrincipal OidcUser oidcUser, @RequestHeader("Authorization") String token) {
 		
 		final Response<BudgetDTO> response = new Response<>();
-		HttpStatus statusCode = HttpStatus.OK;
+		DecodedJWT userInfo = validator.validate(token);
 		
+		
+		
+		HttpStatus statusCode = HttpStatus.OK;
 		try {
 			mailService.sendTextEmail(SendGridHelper.EMAIL_FROM_DEFAULT, 
 					"presupesto creado", 

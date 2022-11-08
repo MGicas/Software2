@@ -8,7 +8,7 @@ public final class Message {
 	private String title;
 	private MessageLevel level;
 	
-	private Message(final String text, final String title, final MessageLevel level) {
+	public Message(final String text, final String title, final MessageLevel level) {
 		setText(text);
 		setTitle (title);
 		setLevel(level);

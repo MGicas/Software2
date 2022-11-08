@@ -1,5 +1,5 @@
 auth0:
-  audience: https://rs256.test.api
+  audience: https://zebaxthi.us.auth0.com/api/v2/
 azure:
  application-insights:
   instrumentation-key: 0fc69e37-c8bb-4506-b909-80b0550ab8f0
