@@ -6,11 +6,19 @@ azure:
 spring:
  sendgrid:
   api-key: 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
+
+ cloud:
+    vault:
+      kv:
+        enabled: 'true'
+      scheme: http
+      token: 00000000-0000-0000-0000-000000000000
+ config:
+     import: vault://
  datasource:
-  url: jdbc:sqlserver://rg-wf.database.windows.net:1433;database=db--budget;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-  username: userDmlBudget
-  password: us3rDmlBudg3t
-  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://rg-wf.database.windows.net:1433;database=db--budget;user=userDmlBudget;password=us3rDmlBudg3t;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+ application:
+    name: gs-vault-config
  security:
     oauth2:
       resourceserver:
@@ -29,5 +37,8 @@ spring:
           auth0:
             # trailing slash is important!
             issuer-uri: https://zebaxthi.us.auth0.com/
+<<<<<<< HEAD
 
  
+=======
+>>>>>>> main

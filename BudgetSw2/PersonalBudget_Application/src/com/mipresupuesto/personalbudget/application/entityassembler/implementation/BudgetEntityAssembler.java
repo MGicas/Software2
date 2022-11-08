@@ -1,5 +1,6 @@
 package com.mipresupuesto.personalbudget.application.entityassembler.implementation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.mipresupuesto.personalbudget.application.entityassembler.EntityAssembler;
@@ -14,6 +15,10 @@ public class BudgetEntityAssembler implements EntityAssembler<BudgetEntity, Budg
 	private YearEntityAssembler yearEntityAssembler;
 	private PersonEntityAssembler personEntityAssembler;
 
+	@Autowired
+	PersonEntityAssembler personEntityAssembler;
+	@Autowired
+	YearEntityAssembler yearEntityAssembler;
 	@Override
 	public BudgetDomain asembleDomain(BudgetEntity entity) {
 		BudgetDomain domain = BudgetDomainBuilder.get().build();
