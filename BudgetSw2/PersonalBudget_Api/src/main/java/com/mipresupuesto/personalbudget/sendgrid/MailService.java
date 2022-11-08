@@ -18,8 +18,9 @@ import com.sendgrid.SendGrid;
 @Service
 public class MailService {
 	private static final Logger logger = LoggerFactory.getLogger(MailService.class);
-	@Value("${spring.sendgrid.api.key}") 
-	String sendGridAPIKey;
+	
+//	@Value("${spring.sendgrid.api.key}") 
+//	String sendGridAPIKey;
 	
 	public String sendTextEmail(Email from, String subject, Email to, Content content) throws IOException {
 		// the sender email should be the same as we used to Create a Single Sender Verification
@@ -29,7 +30,7 @@ public class MailService {
 //		    Content content = new Content("text/plain", "This is a test email");
 		    Mail mail = new Mail(from, subject, to, content);
 		
-		    SendGrid sg = new SendGrid(sendGridAPIKey);
+		    SendGrid sg = new SendGrid("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");
 		    Request request = new Request();
 		    try {
 		      request.setMethod(Method.POST);

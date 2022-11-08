@@ -1,3 +1,11 @@
+azure:
+  application-insights:
+    instrumentation-key: 8483b0d3-8878-4382-944f-1a030823bf9f 
+    enabled: true
+    web:
+      enabled: true
+    logger:
+      level: info
 spring:
  sendgrid:
   api-key: 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

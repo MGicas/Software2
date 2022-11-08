@@ -75,6 +75,11 @@
 			<artifactId>sendgrid-java</artifactId>
 			<version>4.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>applicationinsights-runtime-attach</artifactId>
+			<version>3.4.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
