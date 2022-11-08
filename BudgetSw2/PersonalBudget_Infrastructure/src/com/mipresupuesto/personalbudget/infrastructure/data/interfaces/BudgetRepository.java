@@ -13,4 +13,7 @@ import com.mipresupuesto.personalbudget.entity.BudgetEntity;
 public interface BudgetRepository extends JpaRepository<BudgetEntity, UUID> {
 	@Query(value = "SELECT* FROM dbo.Budget WHERE idYear = ?1 and idPerson = ?2", nativeQuery = true)
 	Optional<BudgetEntity> getByYearandPerson(UUID yearId, UUID personId);
+	
+	@Query(value="INSERT INTO dbo.Budget(id, idYear, idPerson) VALUES(?1,?2,?3)", nativeQuery = true)
+    void createBudgetByPersonAndYear(String budgetId, String yearId, String personId);
 }
